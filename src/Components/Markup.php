@@ -162,14 +162,23 @@ class Markup extends Component
 
         throw_if(in_array($el, self::SELF_TERMINATE), new \InvalidArgumentException('Blade-Emerald parse error: Self-Closing Tags not supported'));
 
+        if($class) $attributes['class'] = $class;
+        if($id) $attributes['id'] = $id;
+
+        return $this->createElementWithAttributes($el, $attributes);
+    }
+
+    private function createElementWithAttributes(string $el, array $attributes) : DOMElement {
         try {
             $element = $this->dom->createElement($el);
 
-            if($class) $element->setAttribute('class', $class);
-            if($id) $element->setAttribute('id', $id);
-
             if($attributes) {
                 foreach ($attributes as $key => $value) {
+                    if($this->isInnerText($key)) {
+                        $this->setInnerText($element, $value);
+                        continue;
+                    }
+
                     $element->setAttribute($key, $value);
                 }
             }
@@ -179,6 +188,15 @@ class Markup extends Component
         }
 
         return $element;
+    }
+
+    private function isInnerText(string $key) : bool {
+        return $key == 'data-innerText';
+    }
+
+    private function setInnerText(DOMElement $element, string $content) : void {
+        $node = $this->dom->createTextNode($content);
+        $element->appendChild($node);
     }
 
     public function render()
