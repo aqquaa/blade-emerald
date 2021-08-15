@@ -1,1 +1,1 @@
-<h1>Rav</h1>
+{!! $generateMarkup($slot) !!}
