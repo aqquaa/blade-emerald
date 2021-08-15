@@ -1,0 +1,15 @@
+.idea
+.php_cs
+.php_cs.cache
+.phpunit.result.cache
+node_modules
+build
+composer.lock
+coverage
+docs
+phpunit.xml
+psalm.xml
+testbench.yaml
+vendor
+*.js.LICENSE.txt
+*.hot-update.js
