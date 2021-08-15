@@ -15,19 +15,23 @@ class Markup extends Component
     public $dom;
     public $lastElement;
 
+    const SELF_TERMINATE = [
+        'area','base','basefont','br','col','embed','frame','hr','img','input','link','meta','param','source','track','wbr'
+    ];
+
     public function __construct($make) {
         $this->dom = new DOMDocument();
         $this->make = $make;
     }
 
-    /*public function appendHTML(DOMNode $parent, $source) {
-        $tmpDoc = new DOMDocument();
-        $tmpDoc->loadHTML($source);
-        foreach ($tmpDoc->getElementsByTagName('body')->item(0)->childNodes as $node) {
-            $node = $parent->ownerDocument->importNode($node, true);
-            $parent->appendChild($node);
-        }
-    }*/
+    // public function appendHTML(DOMNode $parent, $source) {
+    //     $tmpDoc = new DOMDocument();
+    //     $tmpDoc->loadHTML($source);
+    //     foreach ($tmpDoc->getElementsByTagName('body')->item(0)->childNodes as $node) {
+    //         $node = $parent->ownerDocument->importNode($node, true);
+    //         $parent->appendChild($node);
+    //     }
+    // }
 
     public function generateMarkup(string $slotContent) : string
     {
@@ -156,15 +160,22 @@ class Markup extends Component
             $el = $items[0];
         }
 
-        $element = $this->dom->createElement($el);
+        throw_if(in_array($el, self::SELF_TERMINATE), new \InvalidArgumentException('Blade-Emerald parse error: Self-Closing Tags not supported'));
 
-        if($class) $element->setAttribute('class', $class);
-        if($id) $element->setAttribute('id', $id);
+        try {
+            $element = $this->dom->createElement($el);
 
-        if($attributes) {
-            foreach ($attributes as $key => $value) {
-                $element->setAttribute($key, $value);
+            if($class) $element->setAttribute('class', $class);
+            if($id) $element->setAttribute('id', $id);
+
+            if($attributes) {
+                foreach ($attributes as $key => $value) {
+                    $element->setAttribute($key, $value);
+                }
             }
+
+        } catch (\Exception $th) {
+            throw new \InvalidArgumentException('Blade-Emerald parse error: '. $th->getMessage());
         }
 
         return $element;
