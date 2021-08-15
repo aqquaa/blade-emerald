@@ -8,7 +8,7 @@ use DOMDocument;
 use DOMNode;
 use DOMElement;
 
-class Emerald extends Component
+class Markup extends Component
 {
     public $make;
 
@@ -57,7 +57,7 @@ class Emerald extends Component
                     $first = false;
                 }
 
-                $this->lastElement = $this->lastElement->parentNode ?: $this->dom;
+                $this->lastElement = isset($this->lastElement->parentNode) ? $this->lastElement->parentNode : $this->dom;
 
                 continue;
             }

@@ -4,7 +4,7 @@ namespace Aqua\Emerald;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
-use Aqua\Emerald\Components\Emerald;
+use Aqua\Emerald\Components\Markup;
 
 class EmeraldServiceProvider extends ServiceProvider
 {
@@ -13,10 +13,10 @@ class EmeraldServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'emerald');
 
         $this->loadViewComponentsAs('emerald', [
-            Emerald::class,
+            Markup::class,
         ]);
 
-        Blade::component('emerald', Emerald::class);
+        Blade::component('markup', Markup::class);
     }
 
     /**
