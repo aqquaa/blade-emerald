@@ -86,18 +86,9 @@ class Markup extends Component
     {
         if(Str::contains($part, '#')) {
             // when starting with id like: p.#foo.test
-            if(preg_match("/(?<=\#)(\w+)\.+/", $part, $match)) {
+            if(preg_match("/\#([^\[\.\(]+)/", $part, $match)) {
                 return $match[1];
             }
-
-            // when ending with id like: p.test#foo
-            if(preg_match("/\#(\w+)\b(?!\.)$/", $part, $match)) {
-                return $match[1];
-            }
-
-            [$el, $id] = explode('#', $part);
-
-            return $id;
         }
 
         return null;
