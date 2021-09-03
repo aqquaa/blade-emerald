@@ -1,6 +1,6 @@
 {
     "name": "aqua/blade-emerald",
-    "description": "Emmet like Abbreviation for Laravel blade to generate & wrap with markup at runtime",
+    "description": "Emmet like Abbreviation for Laravel blade component to generate markup",
     "keywords": [
         "HTML",
         "Laravel",
