@@ -1,1 +1,1 @@
-{!! $generateMarkup($slot) !!}
+{!! $getMarkup($slot) !!}
