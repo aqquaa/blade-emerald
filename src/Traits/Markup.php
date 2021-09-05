@@ -6,26 +6,15 @@ use Closure;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\View\View as ViewContract;
-use Aqua\Emerald\Generate;
+use Spatie\HtmlElement\HtmlElement;
 
 trait Markup {
     public function resolveView()
     {
-        throw_if(
-            ! property_exists(static::class, 'markify') || empty(static::$markify),
-            new \InvalidArgumentException('Blade-Emerald parse error: missing "markify" property')
-        );
+        $abbreviation = $this->extractEmeraldAbbr();
 
-        $view = (new Generate)->generateMarkup($this->{static::$markify}, ($this->render())->render());
-
-        
-        if ($view instanceof ViewContract) {
-            return $view;
-        }
-
-        if ($view instanceof Htmlable) {
-            return $view;
-        }
+        $renderedContent = is_string($this->render()) ? $this->render() : ($this->render())->render();
+        $view = HtmlElement::render($abbreviation, $renderedContent);
 
         $resolver = function ($view) {
             $factory = Container::getInstance()->make('view');
@@ -35,9 +24,20 @@ trait Markup {
                         : $this->createBladeViewFromString($factory, $view);
         };
 
-        return $view instanceof Closure ? function (array $data = []) use ($view, $resolver) {
-            return $resolver($view($data));
+        return $resolver($view);
+    }
+
+    protected function extractEmeraldAbbr() : string {
+        if(! property_exists(static::class, 'wrapby')) {
+            try { return $this->wrap; } catch (\Exception $th) {
+                // Blade-Emerald parse error: either accept abbreviation using `wrap` property or define your property name using `wrapby` property
+            }
         }
-        : $resolver($view);
+
+        try { return $this->{static::$wrapby}; } catch (\Exception $th) {
+            throw new \InvalidArgumentException("Blade-Emerald parse error: unable to extract abbreviation using `{static::$wrapby}` property");
+        }
+
+        return '';
     }
 }
