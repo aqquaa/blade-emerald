@@ -1,10 +1,11 @@
 {
     "name": "aqua/blade-emerald",
-    "description": "Emmet like Abbreviation for Laravel blade component to generate markup",
+    "description": "Emmet like Abbreviation for Laravel Blade Component to generate & wrap with markup",
     "keywords": [
         "HTML",
         "Laravel",
-        "Blade Component"
+        "Blade Component",
+        "Blade HTML Markup Generate"
     ],
     "homepage": "https://github.com/devsrv",
     "license": "MIT",
