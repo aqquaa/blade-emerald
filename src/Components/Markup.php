@@ -3,7 +3,7 @@
 namespace Aqua\Emerald\Components;
 
 use Illuminate\View\Component;
-use Aqua\Emerald\Generate;
+use Spatie\HtmlElement\HtmlElement;
 
 class Markup extends Component
 {
@@ -12,7 +12,7 @@ class Markup extends Component
     public function __construct($make) { $this->make = $make; }
 
     public function getMarkup($content) {
-        return (new Generate)->generateMarkup($this->make, $content);
+        return HtmlElement::render($this->make, $content);
     }
 
     public function render()
