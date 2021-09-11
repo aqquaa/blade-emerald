@@ -17,18 +17,31 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
-        "illuminate/support": "^7.0 || ^8.0",
-        "illuminate/view": "^7.0 || ^8.0",
+        "php": ">=7.4",
+        "illuminate/support": "^8.0",
+        "illuminate/view": "^8.0",
         "spatie/html-element": "dev-master"
     },
     "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "pestphp/pest": "^1.18",
+        "pestphp/pest-plugin-laravel": "^1.1",
         "phpunit/phpunit": "^9.3"
     },
     "autoload": {
         "psr-4": {
             "Aqua\\Emerald\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Aqua\\Emerald\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "@php ./vendor/bin/testbench package:discover --ansi"
+        ]
     },
     "config": {
         "sort-packages": true
