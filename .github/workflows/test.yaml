@@ -14,13 +14,12 @@ jobs:
             matrix:
                 php: [8.0, 7.4, 7.3]
                 laravel: [8.*]
-                dependency-version: [prefer-lowest, prefer-stable]
                 os: [ubuntu-latest, windows-latest]
                 include:
                     - laravel: 8.*
                       testbench: 6.*
 
-        name: PHP ${{ matrix.php }} with Laravel ${{ matrix.laravel }} - ${{ matrix.dependency-version }} on ${{ matrix.os }}
+        name: PHP ${{ matrix.php }} with Laravel ${{ matrix.laravel }} - ${{ matrix.os }}
 
         steps:
             - name: Checkout code
@@ -36,7 +35,7 @@ jobs:
             - name: Install dependencies
               run: |
                   composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-                  composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+                  composer update --prefer-dist --no-interaction --no-suggest
 
             - name: Execute pest tests
               run: vendor/bin/pest
