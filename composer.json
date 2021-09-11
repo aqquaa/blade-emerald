@@ -7,7 +7,7 @@
         "Blade Component",
         "Blade HTML Markup Generate"
     ],
-    "homepage": "https://github.com/devsrv",
+    "homepage": "https://github.com/aqquaa/blade-emerald",
     "license": "MIT",
     "authors": [
         {
@@ -37,11 +37,6 @@
         "psr-4": {
             "Aqua\\Emerald\\Tests\\": "tests/"
         }
-    },
-    "scripts": {
-        "post-autoload-dump": [
-            "@php ./vendor/bin/testbench package:discover --ansi"
-        ]
     },
     "config": {
         "sort-packages": true
