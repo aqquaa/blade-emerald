@@ -1,0 +1,22 @@
+name: TESTING
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  pest:
+    name: Tests (Pest)
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      with:
+        php-version: '7.4'
+    - uses: actions/checkout@v2
+    - name: Install composer dependencies
+      run: composer install
+    - name: Run Pest tests
+      run: vendor/bin/pest
