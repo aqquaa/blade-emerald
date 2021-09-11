@@ -1,4 +1,4 @@
-name: TESTING
+name: Run tests
 
 on:
   push:
@@ -7,16 +7,43 @@ on:
     branches: [ master ]
 
 jobs:
-  pest:
-    name: Tests (Pest)
-    runs-on: ubuntu-latest
+    php-tests:
+        runs-on: ${{ matrix.os }}
 
-    steps:
-    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
-      with:
-        php-version: '7.4'
-    - uses: actions/checkout@v2
-    - name: Install composer dependencies
-      run: composer install
-    - name: Run Pest tests
-      run: vendor/bin/pest
+        strategy:
+            matrix:
+                php: [8.0, 7.4, 7.3]
+                laravel: [8.*, 7.*]
+                dependency-version: [prefer-lowest, prefer-stable]
+                os: [ubuntu-latest, windows-latest]
+                include:
+                    - laravel: 8.*
+                      testbench: 6.*
+                    - laravel: 7.*
+                      testbench: 5.*
+                exclude:
+                    - laravel: 7.*
+                      php: 8.0
+                    - laravel: 7.*
+                      php: 7.4
+
+        name: PHP${{ matrix.php }} with Laravel${{ matrix.laravel }} - ${{ matrix.dependency-version }} on ${{ matrix.os }}
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+              with:
+                  php-version: ${{ matrix.php }}
+                  extensions: dom, curl, libxml, mbstring, pdo, sqlite, pdo_sqlite
+                  coverage: none
+
+            - name: Install dependencies
+              run: |
+                  composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+                  composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+
+            - name: Execute pest tests
+              run: vendor/bin/pest
