@@ -14,10 +14,10 @@ test('`x-markup` can be used as an alias of `x-emerald-markup` component', funct
 
 test('`make` prop is required for x-markup & x-emerald-markup component', function () {
     if(isLaravel(8))
-    expect(fn() => $this->blade('<x-markup />'))->toThrow(Illuminate\View\ViewException::class, 'Unresolvable dependency');
+    expect(function() { return $this->blade('<x-markup />'); })->toThrow(Illuminate\View\ViewException::class, 'Unresolvable dependency');
 
     else
-    expect(fn() => $this->blade('<x-markup />'))->toThrow('Unresolvable dependency');
+    expect(function() { return $this->blade('<x-markup />'); })->toThrow('Unresolvable dependency');
 });
 
 test('markup component accept slot', function () {
