@@ -28,7 +28,7 @@ trait Markup {
     }
 
     protected function extractEmeraldAbbr() : string {
-        if(! property_exists(static::class, 'wrapby')) {
+        if(! property_exists(static::class, 'wrapbby')) {
             try { return $this->wrap; } catch (\Exception $th) {
                 // Blade-Emerald parse error: either accept abbreviation using `wrap` property or define your property name using `wrapby` property
             }
