@@ -3,13 +3,13 @@
 test('package provides the `x-emerald-markup` blade component', function () {
     $view = (string) $this->blade('<x-emerald-markup make="span" />');
     
-    expect($view)->toBe('<span></span>');
+    expect($view)->toContain('<span></span>');
 });
 
 test('`x-markup` can be used as an alias of `x-emerald-markup` component', function () {
     $view = (string) $this->blade('<x-markup make="span" />');
     
-    expect($view)->toBe('<span></span>');
+    expect($view)->toContain('<span></span>');
 });
 
 test('`make` prop is required for x-markup & x-emerald-markup component', function () {
@@ -35,7 +35,7 @@ it('wraps slotted content with generated markup', function () {
         ['abbreviation' => 'div.aqua > span#emerald']
     );
     
-    expect($view)->toBe('<div class="aqua"><span id="emerald"><p>slotted content</p></span></div>');
+    expect($view)->toContain('<div class="aqua"><span id="emerald"><p>slotted content</p></span></div>');
 });
 
 test('markup component can be used only for generating html without need of wrapping slotted content', function () {

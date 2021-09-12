@@ -3,7 +3,7 @@
 test('the `Markup` trait can be used in blade component to wrap its content by generated markup using abbreviation', function () {
     $view = (string) $this->blade('<x-emeraldtest-test-component wrap=".card > .card-body" />');
     
-    expect($view)->toBe('<div class="card"><div class="card-body"><p>Lorem ipsum</p></div></div>');
+    expect($view)->toContain('<div class="card"><div class="card-body"><p>Lorem ipsum</p></div></div>');
 });
 
 test('when using the `Markup` trait emerald assumes the abbreviation receiver prop name to be `wrap`', function () {

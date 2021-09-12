@@ -3,13 +3,13 @@
 it('can create html element with class', function () {
     $view = (string) $this->blade('<x-markup make="div.emerald" />');
     
-    expect($view)->toBe('<div class="emerald"></div>');
+    expect($view)->toContain('<div class="emerald"></div>');
 });
 
 it('can create html element with id', function () {
     $view = (string) $this->blade('<x-markup make="div#emerald" />');
     
-    expect($view)->toBe('<div id="emerald"></div>');
+    expect($view)->toContain('<div id="emerald"></div>');
 });
 
 it('can create html element with multiple classes and id', function () {
@@ -30,7 +30,7 @@ it('can create html element with attribute', function () {
         ['abbreviation' => "div[data-title=aqua]"]
     );
     
-    expect($view)->toBe('<div data-title="aqua"></div>');
+    expect($view)->toContain('<div data-title="aqua"></div>');
 });
 
 it('can create html element with id, classes and attributes', function () {
@@ -74,7 +74,7 @@ it('can create html element with attribute without values', function () {
     );
     
     expect($view)
-    ->toBe('<input type="text" required>');
+    ->toContain('<input type="text" required>');
 });
 
 it('can create self closing html element', function () {
@@ -84,7 +84,7 @@ it('can create self closing html element', function () {
     );
     
     expect($view)
-    ->toBe('<img src="/aqua.jpg">');
+    ->toContain('<img src="/aqua.jpg">');
 });
 
 it('support emmet style abbreviation to generate nested html elements', function () {
@@ -107,5 +107,5 @@ it('creates `div` if elelement is not explicitly provided', function () {
     );
     
     expect($content)
-    ->toBe('<div class="container"><div class="row"><div id="card-id" class="card"></div></div></div>');
+    ->toContain('<div class="container"><div class="row"><div id="card-id" class="card"></div></div></div>');
 });
