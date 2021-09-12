@@ -5,7 +5,7 @@ namespace Aqua\Emerald\Tests;
 use Aqua\Emerald\EmeraldServiceProvider;
 use Aqua\Emerald\Test\TestEmeraldServiceProvider;
 use Orchestra\Testbench\TestCase as TestbenchTestCase;
-use Illuminate\Foundation\Testing\Concerns\InteractsWithViews;
+use Aqua\Emerald\Test\InteractsWithViews;
 
 class TestCase extends TestbenchTestCase
 {
