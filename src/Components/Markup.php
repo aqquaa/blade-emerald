@@ -9,7 +9,7 @@ class Markup extends Component
 {
     public $make;
 
-    public function __construct($make) { $this->make = $make; }
+    public function __construct() {  }
 
     public function getMarkup($content) {
         return HtmlElement::render($this->make, $content);
