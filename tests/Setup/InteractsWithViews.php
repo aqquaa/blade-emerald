@@ -1,6 +1,6 @@
 <?php
 
-namespace Aqua\Emerald\Test;
+namespace Aqua\Emerald\Tests\Setup;
 
 use Illuminate\Support\Facades\View as ViewFacade;
 use Illuminate\Support\MessageBag;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Aqua\Emerald\Test;
+namespace Aqua\Emerald\Tests\Setup;
 
 use Illuminate\Support\Traits\Macroable;
 use Illuminate\View\View;

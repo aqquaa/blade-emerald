@@ -3,9 +3,8 @@
 namespace Aqua\Emerald\Tests;
 
 use Aqua\Emerald\EmeraldServiceProvider;
-use Aqua\Emerald\Test\TestEmeraldServiceProvider;
 use Orchestra\Testbench\TestCase as TestbenchTestCase;
-use Aqua\Emerald\Test\InteractsWithViews;
+use Aqua\Emerald\Tests\Setup\{ TestEmeraldServiceProvider, InteractsWithViews };
 
 class TestCase extends TestbenchTestCase
 {

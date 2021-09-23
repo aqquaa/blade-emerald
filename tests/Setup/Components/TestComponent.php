@@ -1,6 +1,6 @@
 <?php
 
-namespace Aqua\Emerald\Test\Components;
+namespace Aqua\Emerald\Tests\Setup\Components;
 
 use Illuminate\View\Component;
 use Aqua\Emerald\Traits\Markup;

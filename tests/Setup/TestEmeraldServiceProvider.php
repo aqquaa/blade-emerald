@@ -1,9 +1,9 @@
 <?php
 
-namespace Aqua\Emerald\Test;
+namespace Aqua\Emerald\Tests\Setup;
 
 use Illuminate\Support\ServiceProvider;
-use Aqua\Emerald\Test\Components\{ TestComponent, TestComponentCustomWrapProp };
+use Aqua\Emerald\Tests\Setup\Components\{ TestComponent, TestComponentCustomWrapProp };
 
 class TestEmeraldServiceProvider extends ServiceProvider
 {
