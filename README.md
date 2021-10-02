@@ -1,6 +1,11 @@
 # Laravel Blade Emerald
 > [Emmet](http://emmet.io/) like Abbreviation to generate and wrap [Laravel](https://laravel.com/) [Blade Component](https://laravel.com/docs/master/blade#components) with markup
 
+<p align="center">
+    <img src="https://binarymesh.dev/assets/dist/img/static_markup.png" width="480" alt="example static markup" />
+    <img src="https://binarymesh.dev/assets/dist/img/blade_component.png" width="425" alt="example blade component" />
+</p>
+
 ## 🌈 Features
 
 - Generate HTML in a Blade file via package provided component: `<x-markup make="div.col>span#alert">`
