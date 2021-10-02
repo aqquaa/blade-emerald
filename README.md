@@ -2,8 +2,8 @@
 > [Emmet](http://emmet.io/) like Abbreviation to generate and wrap [Laravel](https://laravel.com/) [Blade Component](https://laravel.com/docs/master/blade#components) with markup
 
 <p align="center">
-    <img src="https://binarymesh.dev/assets/dist/img/static_markup.png" width="480" alt="example static markup" />
-    <img src="https://binarymesh.dev/assets/dist/img/blade_component.png" width="425" alt="example blade component" />
+    <img src="https://binarymesh.dev/assets/dist/img/static_markup-1.png" width="410" alt="example static markup" />
+    <img src="https://binarymesh.dev/assets/dist/img/blade_component-1.png" width="410" alt="example blade component" />
 </p>
 
 ## 🌈 Features
