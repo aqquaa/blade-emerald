@@ -1,6 +1,13 @@
 # Laravel Blade Emerald
 > [Emmet](http://emmet.io/) like Abbreviation to generate and wrap [Laravel](https://laravel.com/) [Blade Component](https://laravel.com/docs/master/blade#components) with markup
 
+[![Latest Version on Packagist](https://badgen.net/packagist/v/aqua/blade-emerald?label=latest&color=cyan)](https://packagist.org/packages/aqua/blade-emerald)
+[![Total Downloads](https://badgen.net/packagist/dt/aqua/blade-emerald)](https://packagist.org/packages/aqua/blade-emerald)
+[![GitHub Tests Action Status](https://github.com/aqquaa/blade-emerald/actions/workflows/test.yaml/badge.svg)](https://github.com/aqquaa/blade-emerald/actions/workflows/test.yaml)
+[![Open Issues](https://badgen.net/github/open-issues/aqquaa/blade-emerald?color=red)](https://github.com/aqquaa/blade-emerald/issues?q=is%3Aopen+is%3Aissue)
+[![License](https://badgen.net/github/license/aqquaa/blade-emerald)](https://github.com/aqquaa/blade-emerald/blob/master/LICENSE.md)
+
+
 <p align="center">
     <img src="https://binarymesh.dev/assets/dist/img/static_markup-1.png" width="410" alt="example static markup" />
     <img src="https://binarymesh.dev/assets/dist/img/blade_component-1.png" width="410" alt="example blade component" />
@@ -212,7 +219,10 @@ checkout [spatie/html-element](https://github.com/spatie/html-element#examples) 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## 🏆 Credits
-This package is actually a wrapper around [spatie/html-element](https://github.com/spatie/html-element), all the hard work has been done by Team Spatie so they deserve all the credits. All I did is make it work with Laravel Blade Componets.
+This package is actually a wrapper around [spatie/html-element](https://github.com/spatie/html-element), all the hard work has been done by Team Spatie so they deserve all the credits. All I did is make it work with Laravel Blade Components.
+
+- [![Follow](https://badgen.net/twitter/follow/srvrksh?icon=twitter&label=Sourav%20R)](https://twitter.com/srvrksh)
+- [All Contributors](../../contributors)
 
 ## 🎫 License
 
