@@ -192,7 +192,7 @@ class YourComponent extends Component {
 
 
 ## 📚 Abbreviation Guide
-This package is actually a wrapper around [spatie/html-element](https://github.com/spatie/html-element) checkout their [Examples](https://github.com/spatie/html-element#examples) to get more idea.
+checkout [spatie/html-element](https://github.com/spatie/html-element#examples) to get more idea.
 
 | Syntax | Example | Description |
 |-----------------|-----------------|-----------------|
@@ -206,7 +206,8 @@ This package is actually a wrapper around [spatie/html-element](https://github.c
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## 🏆 Credit
+## 🏆 Credits
+This package is actually a wrapper around [spatie/html-element](https://github.com/spatie/html-element), all the hard work has been done by Team Spatie so they deserve all the credits. All I did is make it work with Laravel Blade Componets.
 
 ## 🎫 License
 
