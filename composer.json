@@ -20,7 +20,7 @@
         "php": "^7.3|^8.0",
         "illuminate/support": "^7.0|^8.0",
         "illuminate/view": "^7.0|^8.0",
-        "spatie/html-element": "dev-main"
+        "spatie/html-element": "^1.1.4"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
