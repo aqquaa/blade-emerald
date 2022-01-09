@@ -20,6 +20,6 @@ class TestComponentCustomWrapProp extends Component
 
     public function render()
     {
-        return view('emeraldtest::testcomponent');
+        return view('testcomponent');
     }
 }
