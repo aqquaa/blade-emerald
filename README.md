@@ -9,8 +9,8 @@
 
 
 <p align="center">
-    <img src="https://binarymesh.dev/assets/dist/img/static_markup-1.png" width="410" alt="example static markup" />
-    <img src="https://binarymesh.dev/assets/dist/img/blade_component-1.png" width="410" alt="example blade component" />
+    <img src="https://binarymesh.dev/assets/package/static_markup-1.png" width="410" alt="example static markup" />
+    <img src="https://binarymesh.dev/assets/package/blade_component-1.png" width="410" alt="example blade component" />
 </p>
 
 ## 🌈 Features
