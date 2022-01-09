@@ -20,13 +20,12 @@
         "php": "^7.3|^8.0",
         "illuminate/support": "^7.0|^8.0",
         "illuminate/view": "^7.0|^8.0",
-        "spatie/html-element": "dev-master"
+        "spatie/html-element": "dev-main"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
-        "pestphp/pest": "^1.18",
-        "pestphp/pest-plugin-laravel": "^1.1",
-        "phpunit/phpunit": "^9.3"
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1"
     },
     "autoload": {
         "psr-4": {
@@ -47,6 +46,11 @@
                 "Aqua\\Emerald\\EmeraldServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "pest": "vendor/bin/pest",
+        "test": "composer artisan view:clear && pest",
+        "artisan": "./vendor/bin/testbench"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
