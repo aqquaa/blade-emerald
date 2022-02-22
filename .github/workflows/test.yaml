@@ -22,7 +22,7 @@ jobs:
                       testbench: 6.*
                 exclude:
                     - laravel: 9.*
-                      php: [7.4, 7.3]
+                      php: 7.*
 
         name: PHP ${{ matrix.php }} with Laravel ${{ matrix.laravel }} - ${{ matrix.os }}
 
