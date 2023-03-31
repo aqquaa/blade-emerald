@@ -12,19 +12,34 @@ jobs:
 
         strategy:
             matrix:
-                php: [8.1, 8.0, 7.4, 7.3]
-                laravel: [9.*, 8.*]
+                php: [8.2, 8.1, 8.0, 7.4, 7.3]
+                laravel: [10.*, 9.*, 8.*]
                 os: [ubuntu-latest]
+                stability: [prefer-lowest, prefer-stable]
                 include:
+                    - laravel: 10.*
+                      testbench: 8.*
+                      pest: 2.3.*
+                      laravelpest: 2.*
                     - laravel: 9.*
                       testbench: 7.*
+                      pest: 1.21.*
+                      laravelpest: 1.1.*
                     - laravel: 8.*
                       testbench: 6.*
+                      pest: 1.21.*
+                      laravelpest: 1.1.*
                 exclude:
                     - laravel: 9.*
                       php: 7.3
                     - laravel: 9.*
                       php: 7.4
+                    - laravel: 10.*
+                      php: 7.3
+                    - laravel: 10.*
+                      php: 7.4
+                    - laravel: 10.*
+                      php: 8.0
 
         name: PHP ${{ matrix.php }} with Laravel ${{ matrix.laravel }} - ${{ matrix.os }}
 
@@ -41,8 +56,8 @@ jobs:
 
             - name: Install dependencies
               run: |
-                  composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-                  composer update --prefer-dist --no-interaction --no-suggest
+                  composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "pestphp/pest:${{ matrix.pest }}" "pestphp/pest-plugin-laravel:${{ matrix.laravelpest }}" --no-interaction --no-update
+                  composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-suggest
 
             - name: Execute pest tests
               run: vendor/bin/pest
