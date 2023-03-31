@@ -1,3 +1,7 @@
+## v1.2.0 - 2023-03-31
+
+- support for laravel 10 & php8.2
+
 ## v1.1.0 - 2022-02-22
 
 - support for laravel 9 & php8.1
